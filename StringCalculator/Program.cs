@@ -9,15 +9,17 @@ namespace StringCalculator
         {
             StringCalculatorClass stringC = new StringCalculatorClass();
 
-            if (args.Length == 1 ) {
-                int res = stringC.add(args[1]);
+            if (args.Length == 1)
+            {
+                int res = stringC.add(args[0]);
                 Console.WriteLine(res);
+
             }
-            else if (args.Length > 1 ) { }
+            else if (args.Length > 1)
             {
                 Console.WriteLine("Exactly one argument is allowed.");
             }
-            
+
         }
     }
 
