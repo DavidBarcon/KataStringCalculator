@@ -51,5 +51,16 @@ namespace TestsStringCalculator
             Assert.AreEqual(res, 10, string.Format("Expected {0} but got {1}", 10, res));
 
         }
+
+        [TestMethod]
+        public void TestOtherDelimiter()
+        {
+            String values = "//;1;2;5;1\n6";
+            StringCalculator.StringCalculatorClass stringC = new StringCalculatorClass();
+
+            int res = stringC.add(values);
+            Assert.AreEqual(res, 15, string.Format("Expected {0} but got {1}", 15, res));
+
+        }
     }
 }
