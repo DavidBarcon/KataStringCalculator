@@ -10,7 +10,8 @@ namespace StringCalculator
             StringCalculatorClass stringC = new StringCalculatorClass();
 
             if (args.Length == 1 ) {
-                stringC.add(args[1]);
+                int res = stringC.add(args[1]);
+                Console.WriteLine(res);
             }
             else if (args.Length > 1 ) { }
             {
