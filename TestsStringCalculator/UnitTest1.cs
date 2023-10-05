@@ -88,5 +88,16 @@ namespace TestsStringCalculator
                 "negative numbers not allowed: -3, -6", message));
             
         }
+
+        [TestMethod]
+        public void TestBigNumbers()
+        {
+            String values = "999,1,1001";
+            StringCalculator.StringCalculatorClass stringC = new StringCalculatorClass();
+
+            int res = stringC.add(values);
+            Assert.AreEqual(res, 1000, string.Format("Expected {0} but got {1}", 1000, res));
+
+        }
     }
 }
