@@ -2,7 +2,7 @@
 String calculator is a program to sum lists of numbers
 
 # Instalation
-In visual studio publish the String claculator project to the the executable
+In visual studio publish the String calculator project to get the executable or execute it directly from the IDE
 
 # Usage
 In the commnad line you execute String calculator.exe followed by a string of numbers as specified below:
