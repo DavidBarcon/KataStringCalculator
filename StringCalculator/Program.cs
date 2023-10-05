@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Runtime.CompilerServices;
 
 namespace StringCalculator
 {
@@ -6,7 +7,16 @@ namespace StringCalculator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            StringCalculatorClass stringC = new StringCalculatorClass();
+
+            if (args.Length == 1 ) {
+                stringC.add(args[1]);
+            }
+            else if (args.Length > 1 ) { }
+            {
+                Console.WriteLine("Exactly one argument is allowed.");
+            }
+            
         }
     }
 
