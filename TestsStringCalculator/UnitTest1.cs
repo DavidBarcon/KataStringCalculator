@@ -62,5 +62,31 @@ namespace TestsStringCalculator
             Assert.AreEqual(res, 15, string.Format("Expected {0} but got {1}", 15, res));
 
         }
+
+        [TestMethod]
+        public void TestNegatives()
+        {
+            String values = "1,2,-3,4,5,-6";
+            StringCalculator.StringCalculatorClass stringC = new StringCalculatorClass();
+
+            int res = 0;
+            string message = "";
+
+            try
+            {
+                res = stringC.add(values);
+                Assert.Fail();
+            }
+            catch (Exception e)
+            {
+
+                message = e.Message;
+            }
+
+            Assert.AreEqual<string>(message, "negative numbers not allowed: -3, -6",
+                String.Format("The wrong exeption was trown. Expected: {0}, but got: {1}", 
+                "negative numbers not allowed: -3, -6", message));
+            
+        }
     }
 }
