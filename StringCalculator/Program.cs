@@ -38,15 +38,23 @@ namespace StringCalculator
             int sum = 0;
             foreach (string value in values)
             {
+                //if there are negative numbers, add them to a list and handle them later
                 int valueNum = Int32.Parse(value);
                 if (valueNum < 0) {
                     negFlag = true; 
                     negs.Add(valueNum);
                 }   
 
+                //ignore numbers grater than 1000
+                if(valueNum > 1000)
+                {
+                    continue;
+                }
+
                 sum += valueNum;
             }
 
+            //handle negative numbers if any
             if(negFlag)
             {
                 string str = ""; 
