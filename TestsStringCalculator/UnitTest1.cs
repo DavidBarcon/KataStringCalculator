@@ -1,4 +1,4 @@
-using StringCalculator;
+﻿using StringCalculator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestsStringCalculator
@@ -15,7 +15,7 @@ namespace TestsStringCalculator
             StringCalculator.StringCalculatorClass stringC= new StringCalculatorClass();
 
             int res = stringC.add(values);
-            Assert.AreEqual(values, 1, string.Format("Expected {0} but got {1}", 1, res));
+            Assert.AreEqual(res, 1, string.Format("Expected {0} but got {1}", 1, res));
 
         }
 
@@ -26,7 +26,7 @@ namespace TestsStringCalculator
             StringCalculator.StringCalculatorClass stringC = new StringCalculatorClass();
 
             int res = stringC.add(values);
-            Assert.AreEqual(values, 3, string.Format("Expected {0} but got {1}", 3, res));
+            Assert.AreEqual(res, 3, string.Format("Expected {0} but got {1}", 3, res));
 
         }
 
@@ -37,7 +37,7 @@ namespace TestsStringCalculator
             StringCalculator.StringCalculatorClass stringC = new StringCalculatorClass();
 
             int res = stringC.add(values);
-            Assert.AreEqual(values, 10, string.Format("Expected {0} but got {1}", 10, res));
+            Assert.AreEqual(res, 10, string.Format("Expected {0} but got {1}", 10, res));
 
         }
     }

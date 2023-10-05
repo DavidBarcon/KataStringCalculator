@@ -14,7 +14,14 @@
 
         public int add(String numbers)
         {
-            return 0;
+            string[] values = numbers.Split(',');
+            int sum = 0;
+            foreach (string value in values)
+            {
+                sum += Int32.Parse(value);
+            }
+
+            return sum;
         }
     }
 }
