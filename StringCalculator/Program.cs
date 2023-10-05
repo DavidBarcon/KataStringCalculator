@@ -16,6 +16,9 @@ namespace StringCalculator
 
         public int add(String numbers)
         {
+            bool negFlag = false;
+            var negs = new List<int>();
+
             char separator = ',';
             //copy the string to modify it
             string nums = (string)numbers.Clone();
@@ -35,7 +38,26 @@ namespace StringCalculator
             int sum = 0;
             foreach (string value in values)
             {
-                sum += Int32.Parse(value);
+                int valueNum = Int32.Parse(value);
+                if (valueNum < 0) {
+                    negFlag = true; 
+                    negs.Add(valueNum);
+                }   
+
+                sum += valueNum;
+            }
+
+            if(negFlag)
+            {
+                string str = ""; 
+                foreach(int value in negs)
+                {
+                    str += value.ToString() + ", ";
+                }
+                str = str.Substring(0, str.Length - 2);
+
+
+                throw new Exception(string.Format("negative numbers not allowed: {0}", str));
             }
 
             return sum;
