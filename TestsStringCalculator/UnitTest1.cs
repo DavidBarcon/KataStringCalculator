@@ -6,68 +6,68 @@ namespace TestsStringCalculator
     
 
     [TestClass]
-    public class UnitTestStep1
+    public class StringCalculator_should
     {
         [TestMethod]
-        public void Test1Value()
+        public void return_1_when_passed_1()
         {
             String values= "1";
-            StringCalculator.StringCalculatorClass stringC= new StringCalculatorClass();
+            StringCalculator.StringCalculatorAdder stringC= new StringCalculatorAdder();
 
             int res = stringC.add(values);
-            Assert.AreEqual(res, 1, string.Format("Expected {0} but got {1}", 1, res));
+            Assert.AreEqual(res, 1);
 
         }
 
         [TestMethod]
-        public void Test2Values()
+        public void return_3_when_passed_1_and_2()
         {
             String values = "1,2";
-            StringCalculator.StringCalculatorClass stringC = new StringCalculatorClass();
+            StringCalculator.StringCalculatorAdder stringC = new StringCalculatorAdder();
 
             int res = stringC.add(values);
-            Assert.AreEqual(res, 3, string.Format("Expected {0} but got {1}", 3, res));
+            Assert.AreEqual(res, 3);
 
         }
 
         [TestMethod]
-        public void TestManyValues()
+        public void return_sum_when_passed_many_values()
         {
             String values = "1,1,1,1,1,1,1,1,1,1";
-            StringCalculator.StringCalculatorClass stringC = new StringCalculatorClass();
+            StringCalculator.StringCalculatorAdder stringC = new StringCalculatorAdder();
 
             int res = stringC.add(values);
-            Assert.AreEqual(res, 10, string.Format("Expected {0} but got {1}", 10, res));
+            Assert.AreEqual(res, 10);
 
         }
 
         [TestMethod]
-        public void TestNewLines()
+        public void consider_new_lines_as_separators()
         {
             String values = "1\n2,4,2\n1";
-            StringCalculator.StringCalculatorClass stringC = new StringCalculatorClass();
+            StringCalculator.StringCalculatorAdder stringC = new StringCalculatorAdder();
 
             int res = stringC.add(values);
-            Assert.AreEqual(res, 10, string.Format("Expected {0} but got {1}", 10, res));
+            Assert.AreEqual(res, 10);
 
         }
 
         [TestMethod]
-        public void TestOtherDelimiter()
+        public void use_other_delimiters_when_stated()
         {
             String values = "//;1;2;5;1\n6";
-            StringCalculator.StringCalculatorClass stringC = new StringCalculatorClass();
+            StringCalculator.StringCalculatorAdder stringC = new StringCalculatorAdder();
 
             int res = stringC.add(values);
-            Assert.AreEqual(res, 15, string.Format("Expected {0} but got {1}", 15, res));
+            Assert.AreEqual(res, 15);
 
         }
 
         [TestMethod]
-        public void TestNegatives()
+        public void throw_when_negative_numbers()
         {
             String values = "1,2,-3,4,5,-6";
-            StringCalculator.StringCalculatorClass stringC = new StringCalculatorClass();
+            StringCalculator.StringCalculatorAdder stringC = new StringCalculatorAdder();
 
             int res = 0;
             string message = "";
@@ -83,20 +83,18 @@ namespace TestsStringCalculator
                 message = e.Message;
             }
 
-            Assert.AreEqual<string>(message, "negative numbers not allowed: -3, -6",
-                String.Format("The wrong exeption was trown. Expected: {0}, but got: {1}", 
-                "negative numbers not allowed: -3, -6", message));
+            Assert.AreEqual<string>(message, "negative numbers not allowed: -3, -6");
             
         }
 
         [TestMethod]
-        public void TestBigNumbers()
+        public void ignore_big_numbers()
         {
             String values = "999,1,1001";
-            StringCalculator.StringCalculatorClass stringC = new StringCalculatorClass();
+            StringCalculator.StringCalculatorAdder stringC = new StringCalculatorAdder();
 
             int res = stringC.add(values);
-            Assert.AreEqual(res, 1000, string.Format("Expected {0} but got {1}", 1000, res));
+            Assert.AreEqual(res, 1000);
 
         }
     }
