@@ -14,29 +14,29 @@ namespace StringCalculator
         public int add(String numbers)
         {
             //instance the parser class
-            Parser parser = new Parser();
+            StringCalculatorParser parser = new StringCalculatorParser();
 
             //parse the string into the array with the numbers
-            string[] values = parser.parseString(numbers);
+            string[] parsedValues = parser.parseString(numbers);
 
             //check if the array has negatives
-            parser.hasNegatives(values);
+            parser.hasNegatives(parsedValues);
             
-            int sum = 0;
-            foreach (string value in values)
+            int finalSum = 0;
+            foreach (string value in parsedValues)
             {
-                int valueNum = Int32.Parse(value);
+                int valueInt = Int32.Parse(value);
 
                 //ignore numbers grater than 1000
-                if (valueNum > 1000)
+                if (valueInt > 1000)
                 {
                     continue;
                 }
 
-                sum += valueNum;
+                finalSum += valueInt;
             }
 
-            return sum;
+            return finalSum;
         }
     }
 }

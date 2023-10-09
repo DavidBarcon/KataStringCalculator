@@ -3,15 +3,15 @@ using System.Runtime.CompilerServices;
 
 namespace StringCalculator
 {
-    internal class Program
+    internal class StringCalculatorMain
     {
         static void Main(string[] args)
         {
-            StringCalculatorAdder stringC = new StringCalculatorAdder();
+            StringCalculatorAdder stringCalculator = new StringCalculatorAdder();
 
             if (args.Length == 1)
             {
-                int res = stringC.add(args[0]);
+                int res = stringCalculator.add(args[0]);
                 Console.WriteLine(res);
 
             }
