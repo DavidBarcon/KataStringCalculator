@@ -8,9 +8,13 @@ namespace StringCalculator
 {
     public class StringCalculatorParser
     {
-        public StringCalculatorParser() { }
 
-        public string[] parseString(string numbers)
+        string numbers;
+        public StringCalculatorParser(string numbers) { 
+            this.numbers = numbers;
+        }
+
+        public int[] parseString()
         {
             char separator = ',';
             //copy the string to modify it
@@ -26,25 +30,63 @@ namespace StringCalculator
             //replace \n by the separator
             numbersCopy = numbersCopy.Replace("\n", separator.ToString());
 
-            //divide the sring and sum its elements
-            string[] finalValues = numbersCopy.Split(separator);
+            //divide the string into an array
+            string[] stringValues = numbersCopy.Split(separator);
+
+            //convert elements to int
+            int[] intValues = stringToIntArray(stringValues);
+
+            //check if there are negative numbers
+            hasNegatives(intValues);
+
+            //remove values greater than 1000 (changes their value to 0)
+            int[] finalValues = removeGraeterThan1000(intValues);
+            
 
             return finalValues;
         }
 
-        public void hasNegatives(string[] values)
+        private int[] removeGraeterThan1000(int[] values) {
+            int[] ints = new int[values.Length];
+
+            for (int i = 0; i < ints.Length; i++)
+            {
+                if (values[i] < 1000)
+                {
+                    ints[i] = values[i];
+                }
+                else
+                {
+                    ints[i] = 0;
+                }
+            }
+            return ints;
+        }
+
+        private int[] stringToIntArray(string[] numbers)
+        {
+            int[] ints = new int[numbers.Length];   
+
+            for(int i= 0 ;i < ints.Length; i++)
+            {
+                ints[i] = Int32.Parse(numbers[i]);
+            }
+            return ints;
+
+        }
+
+        private void hasNegatives(int[] values)
         {
             var negativeNumbers = new List<int>();
 
             //get all negative numbers
-            foreach (string value in values)
+            foreach (int value in values)
             {
-                int valueInt = Int32.Parse(value);
 
                 //if there are negative numbers, add them to a list and handle them later
-                if (valueInt < 0)
+                if (value < 0)
                 {
-                    negativeNumbers.Add(valueInt);
+                    negativeNumbers.Add(value);
                 }
             }
 
