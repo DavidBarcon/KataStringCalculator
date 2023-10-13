@@ -12,6 +12,8 @@ namespace StringCalculator
 
         public int[] parseString(string numbers)
         {
+
+
             char separator = ',';
             //copy the string to modify it
             string numbersCopy = (string)numbers.Clone();
