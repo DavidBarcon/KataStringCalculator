@@ -8,12 +8,11 @@ namespace StringCalculator
     {
         static void Main(string[] args)
         {
-            if (validation(args))
-            {
-                StringCalculatorParser parser = new StringCalculatorParser();
-                StringCalculator stringCalculator = new StringCalculator(parser);
-                Console.WriteLine(stringCalculator.add(args[0]));
-            }
+            
+            StringCalculatorParser parser = new StringCalculatorParser();
+            StringCalculator stringCalculator = new StringCalculator(parser);
+            Console.WriteLine(stringCalculator.add(args[0]));
+            
             
         }
     }
