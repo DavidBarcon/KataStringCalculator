@@ -10,8 +10,9 @@ namespace StringCalculator
         {
             if (validation(args))
             {
-                StringCalculator stringCalculator = new StringCalculator(args[0]);
-                Console.WriteLine(stringCalculator.add());
+                StringCalculatorParser parser = new StringCalculatorParser();
+                StringCalculator stringCalculator = new StringCalculator(parser);
+                Console.WriteLine(stringCalculator.add(args[0]));
             }
             
         }

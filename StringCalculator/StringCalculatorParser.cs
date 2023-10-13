@@ -8,13 +8,9 @@ namespace StringCalculator
 {
     public class StringCalculatorParser
     {
+        public StringCalculatorParser() { }
 
-        string numbers;
-        public StringCalculatorParser(string numbers) { 
-            this.numbers = numbers;
-        }
-
-        public int[] parseString()
+        public int[] parseString(string numbers)
         {
             char separator = ',';
             //copy the string to modify it

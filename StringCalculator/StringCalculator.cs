@@ -8,18 +8,17 @@ namespace StringCalculator
 {
     public class StringCalculator
     {
-        int[] values; 
+        StringCalculatorParser parser;
 
-        public StringCalculator(string numbers) {
-            //when an object is creted it is automatically parsed
-            StringCalculatorParser parser = new StringCalculatorParser(numbers);
-            values = parser.parseString();
+        public StringCalculator(StringCalculatorParser parser) {
+            this.parser = parser;
         }
 
         //other methods can be created for other types of operations
         //add: sums all elements in the list and returns the result
-        public int add()
+        public int add(String numbers)
         {
+            int[] values = parser.parseString(numbers);
             return values.Sum();
         }
     }
